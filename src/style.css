@@ -35,3 +35,12 @@
 .contact-card:last-child{grid-column:1/-1}
 @media(max-width:950px){.stack-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.experience{padding-top:58px;padding-bottom:62px}.organization-layout{gap:30px}}
 @media(max-width:680px){.experience-grid,.stack-grid,.organization-layout{grid-template-columns:1fr}.experience-card{padding:21px}.experience-meta{font-size:8px}.organization{padding-top:50px;padding-bottom:52px}.organization-tree pre{font-size:11px;padding:20px 14px}.organization-tree-heading{padding:15px 14px;font-size:8px}.organization .section-heading{margin-bottom:24px}}
+
+@media(prefers-reduced-motion:no-preference){
+  [data-reveal][data-reveal-ready="true"]{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s cubic-bezier(.2,.7,.2,1)}
+  [data-reveal][data-reveal-ready="true"][data-visible="true"],[data-reveal][data-reveal-ready="true"]:focus-within{opacity:1;transform:translateY(0)}
+  .experience-card{transition:transform .25s ease,border-color .25s ease}
+  .experience-card:hover{transform:translateY(-3px);border-color:#435779}
+  .stack-card{transition:transform .25s ease,border-color .25s ease}
+  .stack-card:hover{transform:translateY(-3px);border-color:#435779}
+}

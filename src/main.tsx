@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import {
   ArrowDown,
@@ -205,6 +205,34 @@ function App() {
     ['stack', 'Tecnologias'],
   ];
 
+  useEffect(() => {
+    if (
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+      !('IntersectionObserver' in window)
+    ) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.setAttribute('data-visible', 'true');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -36px 0px' },
+    );
+
+    document.querySelectorAll<HTMLElement>('[data-reveal]').forEach((element) => {
+      element.setAttribute('data-reveal-ready', 'true');
+      observer.observe(element);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <>
       <a className="skip-link" href="#main">
@@ -324,7 +352,7 @@ function App() {
           </div>
           <div className="project-grid">
             {projects.map((item, index) => (
-              <article className="project-card" key={item.id}>
+              <article className="project-card" key={item.id} data-reveal>
                 <ProjectVisual id={item.id} />
                 <div className="project-info">
                   <div className="project-category">
@@ -345,7 +373,7 @@ function App() {
               </article>
             ))}
           </div>
-          <div className="experiments">
+          <div className="experiments" data-reveal>
             <div className="experiment-icon">
               <FlaskConical size={25} />
             </div>
@@ -363,7 +391,7 @@ function App() {
         </section>
 
         <section className="about-section" id="sobre">
-          <div className="container about-grid">
+          <div className="container about-grid" data-reveal>
             <div>
               <p className="eyebrow muted">02 / SOBRE MIM</p>
               <h2>
@@ -410,7 +438,7 @@ function App() {
           </div>
           <div className="experience-grid">
             {experience.map((item) => (
-              <article className="experience-card" key={item.title}>
+              <article className="experience-card" key={item.title} data-reveal>
                 <div className="experience-meta">
                   <span>{item.kind}</span>
                   <span>{item.period}</span>
@@ -441,7 +469,7 @@ function App() {
               <p>Uma forma de deixar cada parte mais fácil de entender e manter.</p>
             </div>
             <div className="organization-layout">
-              <div className="organization-tree">
+              <div className="organization-tree" data-reveal>
                 <div className="organization-tree-heading">
                   <span>ESTRUTURA DE UMA FUNCIONALIDADE</span>
                   <span>TypeScript</span>
@@ -461,7 +489,7 @@ function App() {
 └── app.tsx`}</code>
                 </pre>
               </div>
-              <div className="organization-copy">
+              <div className="organization-copy" data-reveal>
                 <p>
                   Gosto de agrupar o código por funcionalidade e separar interface, regras e
                   comunicação com a API. Assim, encontro cada parte com facilidade e consigo
@@ -509,7 +537,7 @@ function App() {
           </div>
           <div className="stack-grid">
             {skills.map((skill) => (
-              <div className="stack-card" key={skill.title}>
+              <div className="stack-card" key={skill.title} data-reveal>
                 {skill.icon}
                 <h3>{skill.title}</h3>
                 <p>{skill.text}</p>
@@ -524,7 +552,7 @@ function App() {
         </section>
 
         <section className="contact container" id="contato">
-          <div>
+          <div data-reveal>
             <p className="eyebrow muted">06 / CONTATO</p>
             <h2>
               Vamos conversar<span>?</span>
@@ -535,7 +563,7 @@ function App() {
               Você pode falar comigo por aqui.
             </p>
           </div>
-          <div className="contact-links">
+          <div className="contact-links" data-reveal>
             <ContactLink href={links.github} className="contact-card">
               <Github size={24} />
               <span>
