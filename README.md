@@ -1,4 +1,4 @@
-# João Victor
+# Victor Comando
 
 Meu portfólio pessoal, com projetos em que venho trabalhando e um pouco sobre minha trajetória.
 

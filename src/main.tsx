@@ -261,8 +261,8 @@ function App() {
       </a>
       <header>
         <div className="nav-wrap">
-          <a className="logo" href="#inicio" aria-label="João Victor, início">
-            jv<span>.</span>
+          <a className="logo" href="#inicio" aria-label="Victor Comando, início">
+            vc<span>.</span>
             <span className="logo-slash">/</span>
           </a>
           <nav className={menu ? 'open' : ''} aria-label="Navegação principal">
@@ -296,7 +296,7 @@ function App() {
           </div>
           <div className="hero-content">
             <div>
-              <p className="intro">Olá, eu sou o João Victor.</p>
+              <p className="intro">Olá, eu sou Victor Comando.</p>
               <h1>
                 Aprendo
                 <br />
@@ -328,7 +328,7 @@ function App() {
                 <p>
                   <b>const</b> desenvolvedor = {'{'}
                 </p>
-                <p>&nbsp; nome: <em>'João Victor'</em>,</p>
+                <p>&nbsp; nome: <em>'Victor Comando'</em>,</p>
                 <p>
                   &nbsp; foco: [<em>'web'</em>, <em>'backend'</em>],
                 </p>
@@ -434,7 +434,7 @@ function App() {
               <div className="about-signature">
                 <Code2 size={23} />
                 <span>
-                  João Victor
+                  Victor Comando
                   <small>Estudante de Engenharia de Software · Estácio</small>
                 </span>
               </div>
@@ -618,10 +618,10 @@ function App() {
       </main>
       <footer className="container">
         <a className="logo" href="#inicio">
-          jv<span>.</span>
+          vc<span>.</span>
         </a>
-        <p>Feito por João Victor.</p>
-        <span>© {new Date().getFullYear()} João Victor</span>
+        <p>Feito por Victor Comando.</p>
+        <span>© {new Date().getFullYear()} Victor Comando</span>
       </footer>
 
       {project && (
