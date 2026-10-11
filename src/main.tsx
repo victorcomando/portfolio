@@ -201,8 +201,7 @@ function App() {
     ['projetos', 'Projetos'],
     ['sobre', 'Sobre mim'],
     ['experiencia', 'Experiência'],
-    ['organizacao', 'Organização'],
-    ['stack', 'Tecnologias'],
+    ['como-desenvolvo', 'Como desenvolvo'],
   ];
 
   useEffect(() => {
@@ -457,11 +456,11 @@ function App() {
           </p>
         </section>
 
-        <section className="organization-section" id="organizacao">
+        <section className="organization-section" id="como-desenvolvo">
           <div className="container organization">
             <div className="section-heading">
               <div>
-                <p className="eyebrow muted">04 / ORGANIZAÇÃO DO CÓDIGO</p>
+                <p className="eyebrow muted">04 / COMO DESENVOLVO</p>
                 <h2>
                   Módulos com responsabilidades claras<span>.</span>
                 </h2>
@@ -522,38 +521,37 @@ function App() {
                 </p>
               </div>
             </div>
-          </div>
-        </section>
-
-        <section className="stack container" id="stack">
-          <div className="section-heading">
-            <div>
-              <p className="eyebrow muted">05 / TECNOLOGIAS</p>
-              <h2>
-                Ferramentas que tenho praticado<span>.</span>
-              </h2>
-            </div>
-            <p>Conhecimentos aplicados nos projetos e estudos.</p>
-          </div>
-          <div className="stack-grid">
-            {skills.map((skill) => (
-              <div className="stack-card" key={skill.title} data-reveal>
-                {skill.icon}
-                <h3>{skill.title}</h3>
-                <p>{skill.text}</p>
-                <div className="tags">
-                  {skill.items.map((item) => (
-                    <span key={item}>{item}</span>
-                  ))}
+            <div className="skills-subsection" id="tecnologias">
+              <div className="section-heading">
+                <div>
+                  <p className="eyebrow muted">FERRAMENTAS DO DIA A DIA</p>
+                  <h2>
+                    Tecnologias que tenho praticado<span>.</span>
+                  </h2>
                 </div>
+                <p>Conhecimentos aplicados nos projetos e estudos.</p>
               </div>
-            ))}
+              <div className="stack-grid">
+                {skills.map((skill) => (
+                  <div className="stack-card" key={skill.title} data-reveal>
+                    {skill.icon}
+                    <h3>{skill.title}</h3>
+                    <p>{skill.text}</p>
+                    <div className="tags">
+                      {skill.items.map((item) => (
+                        <span key={item}>{item}</span>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
 
         <section className="contact container" id="contato">
           <div data-reveal>
-            <p className="eyebrow muted">06 / CONTATO</p>
+            <p className="eyebrow muted">05 / CONTATO</p>
             <h2>
               Vamos conversar<span>?</span>
             </h2>

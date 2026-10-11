@@ -44,3 +44,7 @@
   .stack-card{transition:transform .25s ease,border-color .25s ease}
   .stack-card:hover{transform:translateY(-3px);border-color:#435779}
 }
+
+.skills-subsection{margin-top:58px;padding-top:47px;border-top:1px solid #252a35}
+.skills-subsection .section-heading{margin-bottom:24px}
+@media(max-width:680px){.skills-subsection{margin-top:40px;padding-top:35px}.skills-subsection .section-heading{margin-bottom:22px}}
