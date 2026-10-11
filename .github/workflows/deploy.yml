@@ -27,7 +27,7 @@ jobs:
         uses: actions/checkout@v7
 
       - name: Preparar Node.js e pnpm
-        uses: pnpm/setup@v3
+          uses: pnpm/setup@v2
         with:
           runtime: node@24
           cache: true
