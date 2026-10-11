@@ -2,6 +2,5 @@
 export const links = {
   github: 'https://github.com/victorcomando',
   linkedin: 'https://www.linkedin.com/in/joaovictorpcruz',
-  email: '',
-  resume: '', // URL ou caminho de um PDF na pasta public, por exemplo /curriculo.pdf
+  email: 'joaovictorp.cruz22@gmail.com',
 };
