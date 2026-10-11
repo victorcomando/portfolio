@@ -40,6 +40,17 @@ const projects = [
     details:
       'O aplicativo e o backend usam armazenamento local, sincronização de dados e regras para avaliar as corridas. A ideia veio de uma necessidade prática e me permitiu aprender enquanto desenvolvia.',
   },
+  {
+    id: 'workspace',
+    name: 'Workspace',
+    category: 'WEB · FULL STACK',
+    description:
+      'Uma plataforma para organizar rotina de trabalho, calendário, notas e fechamento salarial mensal.',
+    tech: ['React', 'TypeScript', 'NestJS', 'Prisma', 'pnpm', 'Turborepo'],
+    details:
+      'O Workspace reúne calendário de dias trabalhados, configuração de salários por local, resumo mensal e bloco de notas por usuário. A aplicação é um monorepo com pnpm e Turborepo, com frontend em React e API em NestJS.',
+    repository: 'https://github.com/victorcomando/Workspace',
+  },
 ];
 
 const experience = [
@@ -125,6 +136,17 @@ function ContactLink({
 }
 
 function ProjectVisual({ id }: { id: string }) {
+  if (id === 'workspace') {
+    return (
+      <div className="project-visual workspace-visual">
+        <img
+          src={`${import.meta.env.BASE_URL}workspace-preview.png`}
+          alt="Painel do Workspace com resumo salarial, próximos trabalhos e calendário"
+        />
+      </div>
+    );
+  }
+
   if (id === 'emergencia') {
     return (
       <div
@@ -365,9 +387,20 @@ function App() {
                       <span key={technology}>{technology}</span>
                     ))}
                   </div>
-                  <button className="project-more" onClick={() => setSelected(item.id)}>
-                    Conhecer o projeto <ArrowUpRight size={19} />
-                  </button>
+                  {item.repository ? (
+                    <a
+                      className="project-more"
+                      href={item.repository}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Ver repositório <ArrowUpRight size={19} />
+                    </a>
+                  ) : (
+                    <button className="project-more" onClick={() => setSelected(item.id)}>
+                      Conhecer o projeto <ArrowUpRight size={19} />
+                    </button>
+                  )}
                 </div>
               </article>
             ))}
